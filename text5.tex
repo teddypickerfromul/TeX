@@ -1,0 +1,137 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[dvipsnames,usenames]{color}
+\usepackage[russian]{babel} 
+\usepackage[utf8x]{inputenc}
+\usepackage{hyperref} 
+
+\begin{document}
+\begin{center}
+\textbf{\textit{Вопрос 1}}
+\end{center}
+Всегда-ли корректно будет выполняться следующий код:\\
+\line(1,0){400}
+\\
+\\
+\noindent
+\mbox{}\texttt{\textcolor{Black}{1:}} \textcolor{BrickRed}{\textless{}?php} \\
+\mbox{}\texttt{\textcolor{Black}{2:}} \textbf{\textcolor{Blue}{if}}\ \textcolor{BrickRed}{(!}\textbf{\textcolor{Blue}{empty}}\textcolor{BrickRed}{(}\textcolor{ForestGreen}{\$arr}\textcolor{BrickRed}{))} \\
+\mbox{}\texttt{\textcolor{Black}{3:}} \ \ \ \ \ \ \ \ \textbf{\textcolor{Blue}{foreach}}\ \textcolor{BrickRed}{(}\textcolor{ForestGreen}{\$arr}\ \textbf{\textcolor{Blue}{as}}\ \textcolor{ForestGreen}{\$k}\textcolor{BrickRed}{=\textgreater{}}\textcolor{ForestGreen}{\$v}\textcolor{BrickRed}{)}\ \textcolor{Red}{\{} \\
+\mbox{}\texttt{\textcolor{Black}{4:}} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textbf{\textcolor{Blue}{echo}}\ \textbf{\textcolor{Black}{intval}}\textcolor{BrickRed}{(}\textcolor{ForestGreen}{\$v}\textcolor{BrickRed}{).\textless{}}BR\textcolor{BrickRed}{\textgreater{};} \\
+\mbox{}\texttt{\textcolor{Black}{5:}} \ \ \ \ \ \ \ \ \textcolor{Red}{\}} \\
+\mbox{}\texttt{\textcolor{Black}{6:}} \textcolor{BrickRed}{?\textgreater{}} \\
+\line(1,0){400} 
+\begin{center}
+\textit{\textbf{Ответ}}
+\end{center}
+Первое, на что стоит обратить внимание -  тип переменной \textbf{\$arr} : она может не являться массивом, поэтому можно перед проходом по массиву воспользоваться функцией $is\_array$ : \href{http://pastebin.com/D02Z2KsX}{\textit{http://pastebin.com/D02Z2KsX}}.\\
+Второе это необходимость заключения в кавычки \textbf{<BR>} - в противном случае получим ошибку парсера : \href{http://pastebin.com/3JrdnnNZ}{\textit{http://pastebin.com/3JrdnnNZ}}.
+\medskip
+\begin{center}
+\textbf{\textit{Вопрос 2}}
+\end{center}
+Оцените, с точки зрения безопасности, следующий участок кода:\\
+\line(1,0){400}
+\\
+\\
+\noindent
+\mbox{}\texttt{\textcolor{Black}{01:}} \textcolor{BrickRed}{\textless{}?php} \\
+\mbox{}\texttt{\textcolor{Black}{02:}} \textcolor{ForestGreen}{\$id}\ \textcolor{BrickRed}{=}\ \textcolor{ForestGreen}{\$HTTP$\_$GET$\_$VARS}\textcolor{BrickRed}{[}\texttt{\textcolor{Red}{'id'}}\textcolor{BrickRed}{];} \\
+\mbox{}\texttt{\textcolor{Black}{03:}}  \\
+\mbox{}\texttt{\textcolor{Black}{04:}} \textit{\textcolor{Brown}{/*\ соединяемся\ с\ базой\ данных\ */}} \\
+\mbox{}\texttt{\textcolor{Black}{05:}} \textbf{\textcolor{Black}{mysql$\_$pconnect}}\textcolor{BrickRed}{(}\texttt{\textcolor{Red}{"{}localhost"{}}}\textcolor{BrickRed}{,}\ \texttt{\textcolor{Red}{"{}mysql$\_$user"{}}}\textcolor{BrickRed}{,}\ \texttt{\textcolor{Red}{"{}mysql$\_$password"{}}}\textcolor{BrickRed}{)}\ \textbf{\textcolor{Blue}{or}} \\
+\mbox{}\texttt{\textcolor{Black}{06:}} \ \ \ \ \textbf{\textcolor{Blue}{die}}\textcolor{BrickRed}{(}\texttt{\textcolor{Red}{"{}Could\ not\ connect:\ "{}}}\ \textcolor{BrickRed}{.}\ \textbf{\textcolor{Black}{mysql$\_$error}}\textcolor{BrickRed}{());} \\
+\mbox{}\texttt{\textcolor{Black}{07:}}  \\
+\mbox{}\texttt{\textcolor{Black}{08:}} \textbf{\textcolor{Black}{mysql$\_$select$\_$db}}\textcolor{BrickRed}{(}\texttt{\textcolor{Red}{"{}mydb"{}}}\textcolor{BrickRed}{);} \\
+\mbox{}\texttt{\textcolor{Black}{09:}}  \\
+\mbox{}\texttt{\textcolor{Black}{10:}} \textit{\textcolor{Brown}{/*\ здесь\ функция\ вернёт\ корректное\ число\ удалённых\ записей\ */}} \\
+\mbox{}\texttt{\textcolor{Black}{11:}} \textbf{\textcolor{Black}{mysql$\_$query}}\textcolor{BrickRed}{(}\texttt{\textcolor{Red}{"{}DELETE\ FROM\ mytable\ WHERE\ id\ =\ '\$id'"{}}}\textcolor{BrickRed}{);} \\
+\mbox{}\texttt{\textcolor{Black}{12:}}  \\
+\mbox{}\texttt{\textcolor{Black}{13:}} \textbf{\textcolor{Black}{printf}}\ \textcolor{BrickRed}{(}\texttt{\textcolor{Red}{"{}Records\ deleted:\ \%d\textbackslash{}n"{}}}\textcolor{BrickRed}{,}\ \textbf{\textcolor{Black}{mysql$\_$affected$\_$rows}}\textcolor{BrickRed}{());} \\
+\mbox{}\texttt{\textcolor{Black}{14:}} \textcolor{BrickRed}{?\textgreater{}} \\
+\line(1,0){400}
+\newpage 
+\begin{center}
+\textit{\textbf{Ответ}}
+\end{center}
+Этот участок кода содержит серьезную ошибку безопасности, приводящую к легкому осуществлению Sql injection : \href{http://pastebin.com/VnUwx9Mi}{\textit{http://pastebin.com/VnUwx9Mi}}, 
+так как мы полностью доверяем значению переменной \textbf{\$id}, никаким образом не проверяя её.\\
+В зависимости от архитектуры нашего приложения, переменная \textbf{\$id} скорее всего является каким-то целочисленным идентификатором : в таком случае можно сделать \textbf{\$id = intval(\$id)} перед выполнением sql запроса.Но следует учесть особенность функции intval при работе с не числовыми строками : \href{http://pastebin.com/ZdVmNbpA}{\textit{http://pastebin.com/ZdVmNbpA}}.\\
+Также нужно делать экранирование спецсимволов в запросе при помощи стандартных средств драйвера бд - для mysql это функция \textit{mysql\_escape\_string} : \href{http://pastebin.com/2dc98cgk}{\textit{http://pastebin.com/2dc98cgk}}.
+\medskip
+\begin{center}
+\textbf{\textit{Вопрос 3}}
+\end{center}
+Оцените, с точки зрения безопасности, следующий участок кода:\\
+\line(1,0){400}
+\\
+\\
+\noindent
+\mbox{}\texttt{\textcolor{Black}{01:}} \textcolor{BrickRed}{\textless{}?php} \\
+\mbox{}\texttt{\textcolor{Black}{02:}} \textit{\textcolor{Brown}{/*\ Соединяемся,\ выбираем\ базу\ данных\ */}} \\
+\mbox{}\texttt{\textcolor{Black}{03:}}  \\
+\mbox{}\texttt{\textcolor{Black}{04:}} \textcolor{ForestGreen}{\$link}\ \textcolor{BrickRed}{=}\ \textbf{\textcolor{Black}{mysql$\_$connect}}\textcolor{BrickRed}{(}\texttt{\textcolor{Red}{"{}mysql$\_$host"{}}}\textcolor{BrickRed}{,}\ \texttt{\textcolor{Red}{"{}mysql$\_$user"{}}}\textcolor{BrickRed}{,}\ \texttt{\textcolor{Red}{"{}mysql$\_$password"{}}}\textcolor{BrickRed}{)} \\
+\mbox{}\texttt{\textcolor{Black}{05:}} \ \ \ \ \ \ \ \ \textbf{\textcolor{Blue}{or}}\ \textbf{\textcolor{Blue}{die}}\textcolor{BrickRed}{(}\texttt{\textcolor{Red}{"{}Could\ not\ connect\ :\ "{}}}\ \textcolor{BrickRed}{.}\ \textbf{\textcolor{Black}{mysql$\_$error}}\textcolor{BrickRed}{());} \\
+\mbox{}\texttt{\textcolor{Black}{06:}}  \\
+\mbox{}\texttt{\textcolor{Black}{07:}} \textbf{\textcolor{Blue}{print}}\ \texttt{\textcolor{Red}{"{}Connected\ successfully"{}}}\textcolor{BrickRed}{;} \\
+\mbox{}\texttt{\textcolor{Black}{08:}} \textbf{\textcolor{Black}{mysql$\_$select$\_$db}}\textcolor{BrickRed}{(}\texttt{\textcolor{Red}{"{}my$\_$database"{}}}\textcolor{BrickRed}{)}\ \textbf{\textcolor{Blue}{or}}\ \textbf{\textcolor{Blue}{die}}\textcolor{BrickRed}{(}\texttt{\textcolor{Red}{"{}Could\ not\ select\ database"{}}}\textcolor{BrickRed}{);} \\
+\mbox{}\texttt{\textcolor{Black}{09:}}  \\
+\mbox{}\texttt{\textcolor{Black}{10:}} \textcolor{ForestGreen}{\$posts}\ \textcolor{BrickRed}{=}\ \textbf{\textcolor{Blue}{array}}\textcolor{BrickRed}{();} \\
+\mbox{}\texttt{\textcolor{Black}{11:}} \textcolor{ForestGreen}{\$k}\ \textcolor{BrickRed}{=}\ \textcolor{Purple}{0}\textcolor{BrickRed}{;} \\
+\mbox{}\texttt{\textcolor{Black}{12:}}  \\
+\mbox{}\texttt{\textcolor{Black}{13:}} \textcolor{ForestGreen}{\$count}\ \textcolor{BrickRed}{=}\ \textcolor{Purple}{1000}\textcolor{BrickRed}{;} \\
+\mbox{}\texttt{\textcolor{Black}{14:}} \textbf{\textcolor{Blue}{while}}\ \textcolor{BrickRed}{(}\textcolor{ForestGreen}{\$count}\textcolor{BrickRed}{)}\ \textcolor{Red}{\{} \\
+\mbox{}\texttt{\textcolor{Black}{15:}} \ \ \ \ \ \ \ \ \textcolor{ForestGreen}{\$query}\ \textcolor{BrickRed}{=}\ \texttt{\textcolor{Red}{"{}SELECT\ post,login\ FROM\ users$\_$posts\ ORDER\ BY\ login\ LIMIT\ \$k,1"{}}}\textcolor{BrickRed}{;} \\
+\mbox{}\texttt{\textcolor{Black}{16:}}  \\
+\mbox{}\texttt{\textcolor{Black}{17:}} \ \ \ \ \textcolor{ForestGreen}{\$result}\ \textcolor{BrickRed}{=}\ \textbf{\textcolor{Black}{mysql$\_$query}}\textcolor{BrickRed}{(}\textcolor{ForestGreen}{\$query}\textcolor{BrickRed}{)}\ \textbf{\textcolor{Blue}{or}}\ \textbf{\textcolor{Blue}{die}}\textcolor{BrickRed}{(}\texttt{\textcolor{Red}{"{}Query\ failed\ :\ "{}}}\ \textcolor{BrickRed}{.}\ \textbf{\textcolor{Black}{mysql$\_$error}}\textcolor{BrickRed}{());} \\
+\mbox{}\texttt{\textcolor{Black}{18:}} \ \ \ \ \ \ \ \ \textcolor{ForestGreen}{\$row}\ \textcolor{BrickRed}{=}\ \textbf{\textcolor{Black}{mysql$\_$fetch$\_$array}}\textcolor{BrickRed}{(}\textcolor{ForestGreen}{\$result}\textcolor{BrickRed}{);} \\
+\mbox{}\texttt{\textcolor{Black}{19:}}  \\
+\mbox{}\texttt{\textcolor{Black}{20:}} \ \ \ \ \textcolor{ForestGreen}{\$posts}\textcolor{BrickRed}{[}\textcolor{ForestGreen}{\$row}\textcolor{BrickRed}{[}\texttt{\textcolor{Red}{"{}login"{}}}\textcolor{BrickRed}{]][}\textcolor{ForestGreen}{\$row}\textcolor{BrickRed}{[}\texttt{\textcolor{Red}{"{}post"{}}}\textcolor{BrickRed}{]]}\ \textcolor{BrickRed}{=}\ \textbf{\textcolor{Black}{ereg$\_$replace}}\textcolor{BrickRed}{(}\texttt{\textcolor{Red}{"{}"{}}}\textcolor{BrickRed}{,}\  \\
+\mbox{}\texttt{\textcolor{Black}{21:}} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{ForestGreen}{\$row}\textcolor{BrickRed}{[}\texttt{\textcolor{Red}{"{}login"{}}}\textcolor{BrickRed}{],}\ \textcolor{ForestGreen}{\$row}\textcolor{BrickRed}{[}\texttt{\textcolor{Red}{"{}post"{}}}\textcolor{BrickRed}{]);} \\
+\mbox{}\texttt{\textcolor{Black}{22:}} \ \ \ \ \textbf{\textcolor{Black}{mail}}\textcolor{BrickRed}{(}\texttt{\textcolor{Red}{"{}admin@company.com"{}}}\textcolor{BrickRed}{,}\ \texttt{\textcolor{Red}{"{}User\ \$row[login]\ has\ a\ post"{}}}\textcolor{BrickRed}{,}\  \\
+\mbox{}\texttt{\textcolor{Black}{23:}} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{ForestGreen}{\$posts}\textcolor{BrickRed}{[}\textcolor{ForestGreen}{\$row}\textcolor{BrickRed}{[}\texttt{\textcolor{Red}{"{}login"{}}}\textcolor{BrickRed}{]][}\textcolor{ForestGreen}{\$row}\textcolor{BrickRed}{[}\texttt{\textcolor{Red}{"{}post"{}}}\textcolor{BrickRed}{]]);} \\
+\mbox{}\texttt{\textcolor{Black}{24:}}  \\
+\mbox{}\texttt{\textcolor{Black}{25:}} \ \ \ \ \textcolor{ForestGreen}{\$k}\textcolor{BrickRed}{++;} \\
+\mbox{}\texttt{\textcolor{Black}{26:}} \ \ \ \ \textcolor{ForestGreen}{\$count}\textcolor{BrickRed}{-\/-;} \\
+\mbox{}\texttt{\textcolor{Black}{27:}} \textcolor{Red}{\}} \\
+\mbox{}\texttt{\textcolor{Black}{28:}}  \\
+\mbox{}\texttt{\textcolor{Black}{29:}} \textbf{\textcolor{Black}{mysql$\_$free$\_$result}}\textcolor{BrickRed}{(}\textcolor{ForestGreen}{\$result}\textcolor{BrickRed}{);} \\
+\mbox{}\texttt{\textcolor{Black}{30:}}  \\
+\mbox{}\texttt{\textcolor{Black}{31:}} \textit{\textcolor{Brown}{/*\ Закрываем\ соединение\ */}} \\
+\mbox{}\texttt{\textcolor{Black}{32:}} \textbf{\textcolor{Black}{mysql$\_$close}}\textcolor{BrickRed}{(}\textcolor{ForestGreen}{\$link}\textcolor{BrickRed}{);} \\
+\mbox{}\texttt{\textcolor{Black}{33:}} \textcolor{BrickRed}{?\textgreater{}} \\
+\line(1,0){400}
+\begin{center}
+\textit{\textbf{Ответ}}
+\end{center}
+Проблема производительности тут - многократное выполнение запросов, которое можно заменить одним с фиксированным \textbf{LIMIT 0,1000} : \href{http://pastebin.com/EUZr6pcD}{\textit{http://pastebin.com/EUZr6pcD}}.
+Возможный вариант оптимизации без учета работы функции mail :
+\\
+\line(1,0){400}
+\\
+\\
+\noindent
+\mbox{}\texttt{\textcolor{Black}{01:}} \textcolor{BrickRed}{\textless{}?php} \\
+\mbox{}\texttt{\textcolor{Black}{02:}} \textit{\textcolor{Brown}{/*\ Соединяемся,\ выбираем\ базу\ данных\ */}} \\
+\mbox{}\texttt{\textcolor{Black}{03:}}  \\
+\mbox{}\texttt{\textcolor{Black}{04:}} \textcolor{ForestGreen}{\$link}\ \textcolor{BrickRed}{=}\ \textbf{\textcolor{Black}{mysql$\_$connect}}\textcolor{BrickRed}{(}\texttt{\textcolor{Red}{"{}mysql$\_$host"{}}}\textcolor{BrickRed}{,}\ \texttt{\textcolor{Red}{"{}mysql$\_$user"{}}}\textcolor{BrickRed}{,}\ \texttt{\textcolor{Red}{"{}mysql$\_$password"{}}}\textcolor{BrickRed}{)} \\
+\mbox{}\texttt{\textcolor{Black}{05:}} \ \ \ \ \ \ \ \ \textbf{\textcolor{Blue}{or}}\ \textbf{\textcolor{Blue}{die}}\textcolor{BrickRed}{(}\texttt{\textcolor{Red}{"{}Could\ not\ connect\ :\ "{}}}\ \textcolor{BrickRed}{.}\ \textbf{\textcolor{Black}{mysql$\_$error}}\textcolor{BrickRed}{());} \\
+\mbox{}\texttt{\textcolor{Black}{06:}} \textcolor{ForestGreen}{\$posts}\ \textcolor{BrickRed}{=}\ \textbf{\textcolor{Blue}{array}}\textcolor{BrickRed}{();} \\
+\mbox{}\texttt{\textcolor{Black}{07:}} \textcolor{ForestGreen}{\$k}\ \textcolor{BrickRed}{=}\ \textcolor{Purple}{0}\textcolor{BrickRed}{;} \\
+\mbox{}\texttt{\textcolor{Black}{08:}} \textcolor{ForestGreen}{\$count}\ \textcolor{BrickRed}{=}\ \textcolor{Purple}{1000}\textcolor{BrickRed}{;} \\
+\mbox{}\texttt{\textcolor{Black}{09:}} \textcolor{ForestGreen}{\$query}\ \textcolor{BrickRed}{=}\ \texttt{\textcolor{Red}{"{}SELECT\ post,login\ FROM\ users$\_$posts\ ORDER\ BY\ login\ LIMIT\ \$k,\$count"{}}}\textcolor{BrickRed}{;} \\
+\mbox{}\texttt{\textcolor{Black}{10:}} \textcolor{ForestGreen}{\$result}\ \textcolor{BrickRed}{=}\ \textbf{\textcolor{Black}{mysql$\_$query}}\textcolor{BrickRed}{(}\textcolor{ForestGreen}{\$query}\textcolor{BrickRed}{)}\ \textbf{\textcolor{Blue}{or}}\ \textbf{\textcolor{Blue}{die}}\textcolor{BrickRed}{(}\texttt{\textcolor{Red}{"{}Query\ failed\ :\ "{}}}\ \textcolor{BrickRed}{.}\ \textbf{\textcolor{Black}{mysql$\_$error}}\textcolor{BrickRed}{());} \\
+\mbox{}\texttt{\textcolor{Black}{11:}} \textcolor{ForestGreen}{\$count}\ \textcolor{BrickRed}{=}\ \textbf{\textcolor{Black}{mysql$\_$num$\_$rows}}\textcolor{BrickRed}{(}\textcolor{ForestGreen}{\$result}\textcolor{BrickRed}{);} \\
+\mbox{}\texttt{\textcolor{Black}{12:}} \textbf{\textcolor{Blue}{for}}\ \textcolor{BrickRed}{(}\textcolor{ForestGreen}{\$i}\textcolor{BrickRed}{=}\textcolor{Purple}{0}\textcolor{BrickRed}{;}\textcolor{ForestGreen}{\$i}\textcolor{BrickRed}{\textless{}}\textcolor{ForestGreen}{\$count}\textcolor{BrickRed}{;}\textcolor{ForestGreen}{\$i}\textcolor{BrickRed}{++)}\ \textcolor{Red}{\{} \\
+\mbox{}\texttt{\textcolor{Black}{13:}} \ \ \ \ \ \ \ \ \textcolor{ForestGreen}{\$buf}\ \textcolor{BrickRed}{=}\ \textbf{\textcolor{Black}{mysql$\_$fetch$\_$assoc}}\textcolor{BrickRed}{(}\textcolor{ForestGreen}{\$result}\textcolor{BrickRed}{);} \\
+\mbox{}\texttt{\textcolor{Black}{14:}} \ \ \ \ \ \ \ \ \textbf{\textcolor{Black}{mail}}\textcolor{BrickRed}{(}\texttt{\textcolor{Red}{"{}admin@company.com"{}}}\textcolor{BrickRed}{,}\ \texttt{\textcolor{Red}{"{}User\ \$buf[login]\ has\ a\ post"{}}}\textcolor{BrickRed}{,}\ \textbf{\textcolor{Black}{ereg$\_$replace}}\textcolor{BrickRed}{(}\texttt{\textcolor{Red}{"{}"{}}}\textcolor{BrickRed}{,}\ \textcolor{ForestGreen}{\$buf}\textcolor{BrickRed}{[}\texttt{\textcolor{Red}{"{}login"{}}}\textcolor{BrickRed}{],}\ \textcolor{ForestGreen}{\$buf}\textcolor{BrickRed}{[}\texttt{\textcolor{Red}{"{}post"{}}}\textcolor{BrickRed}{]));} \\
+\mbox{}\texttt{\textcolor{Black}{15:}} \textcolor{Red}{\}} \\
+\mbox{}\texttt{\textcolor{Black}{16:}} \textbf{\textcolor{Black}{mysql$\_$free$\_$result}}\textcolor{BrickRed}{(}\textcolor{ForestGreen}{\$result}\textcolor{BrickRed}{);} \\
+\mbox{}\texttt{\textcolor{Black}{17:}} \textit{\textcolor{Brown}{/*\ Закрываем\ соединение\ */}} \\
+\mbox{}\texttt{\textcolor{Black}{18:}} \textbf{\textcolor{Black}{mysql$\_$close}}\textcolor{BrickRed}{(}\textcolor{ForestGreen}{\$link}\textcolor{BrickRed}{);} \\
+\mbox{}\texttt{\textcolor{Black}{19:}} \textcolor{BrickRed}{?\textgreater{}} \\
+\mbox{}\texttt{\textcolor{Black}{20:}} 
+\\
+\line(1,0){400}
+
+
+\end{document} 

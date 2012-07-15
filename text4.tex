@@ -1,0 +1,293 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[warn]{mathtext} 
+\usepackage[russian]{babel} 
+\usepackage[utf8x]{inputenc}
+\usepackage{graphicx}
+\usepackage[top=1cm,bottom=1.5cm,left=1cm,right=1cm]{geometry}
+%\usepackage{pgfplots}
+\usepackage{multirow}
+
+
+\begin{document}
+	\begin{flushleft}
+		\textit{\textbf{Пункт 3.1 :} (Закон Ома)}
+		\\
+		\medskip
+		\hangindent=1.5cm \hangafter=0 \noindent
+		Снимите экспериментально и постройте графики зависимостей ${I=f(U)}$ при  ${R=const}$ и ${I=f(R)}$ при ${U=const}$.\\
+		В расчетах использовались соответствующие математические соотношения между напряжением ${U}$, током ${I}$ и сопротивлением ${R}$ на участке цепи с сопротивлением :
+		\begin{center}
+			\begin{equation}
+				I = \frac{U}{R}
+			\end{equation}
+			\begin{equation}
+				U = I\cdot R
+			\end{equation}
+			\begin{equation}	
+				R = \frac{U}{I}
+			\end{equation}
+		\end{center}
+		где ${I}$ - ток, A; ${U}$ - напряжение, B; ${R}$ -  сопротивление, Ом.
+		\\
+		\medskip
+		\textit{Результаты измерений : }
+		\\
+		\medskip
+		\begin{center}
+			\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline ${U, B}$ & 0 & 2 & 4 & 6 & 8 & 10 & 12 \\ 
+\hline ${I}$, мА при ${R=100}$ Ом & 0 & 39,8 & 59,8 & 79,5 & 83,2 & 98,7 & 118,4 \\ 
+\hline ${I}$, мА при ${R=150}$ Ом & 0 & 26,2 & 39,3 & 45,7 & 53 & 65,4 & 78,6 \\ 
+\hline ${I}$, мА при ${R=330}$ Ом & 0 & 6 & 12 & 18 & 23,9 & 30 & 36 \\ 
+\hline 
+\end{tabular}
+\\
+\medskip
+\end{center}
+		\textit{График зависимости ${U(I)}$ для разных сопротивлений :}
+		\\
+		\medskip
+		\begin{center}
+			\includegraphics[scale=0.75]{gnuplot_p1_g1.png} 
+		\end{center}
+		\newpage
+		Для построения кривых ${I=f(R)}$ измерим токи, имеющие место при напряжениях 4 В, 8 В и 12 В, в зависимости от соответствующих напряжений (100, 150, 220, 330, 470, 680 и 1000 Ом).\\
+		\textit{Результаты измерений :}
+		\begin{center}
+			\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline ${R}$, Ом & 100 & 150 & 220 & 330 & 470 & 680 & 1000 \\ 
+\hline ${I}$, при ${U=12 }$ В & 118,7 & 78,6 & 54 & 36 & 24,6 & 16,8 & 12 \\ 
+\hline ${I}$, при ${U=8 }$ В & 79,4 & 50 & 36,1 & 24 & 16,4 & 11,2 & 8 \\ 
+\hline ${I}$, при ${U=4 }$ В & 39,7 & 26,3 & 18,3 & 12 & 8,1 & 5,6 & 4 \\ 
+\hline 
+\end{tabular}
+		\\
+		\medskip 
+		\end{center}
+		\textit{График зависимости ${I(R)}$ для разных значений напряжения :}
+		\\
+		\medskip
+		\begin{center}
+			\includegraphics[scale=0.75]{plot2.png} 
+		\end{center}
+	\end{flushleft}
+	\begin{flushleft}	
+	\textit{\textbf{Пункт 4.2 :} (Линейные резисторы)}
+	\\
+	\medskip
+	\hangindent=1.5cm \hangafter=0 \noindent
+	Резистор называют \textit{\textbf{линейным}}, когда ток в нем изменяется пропорционально приложенному напряжению	то есть функция ${I=f(U)}$ прямолинейна.
+	\\
+	\medskip
+	\textit{Результаты измерений (для схемы 4.2.1) :}
+	\begin{center}
+	\begin{tabular}{|c|c|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|}
+	\hline
+\multicolumn{2}{|c|}
+  {${U}$, В}  &  2  &  4  &  6  &  8  &  10  &  12  \\\hline
+\multirow{2}{*}{${R}=100$ Ом}
+      & ${I}$, мА  & 0,02 & 0,04 & 0,07 & 0,09 & 0,12 & 0,15 \\
+      & ${P}$, мВт & 0,04 & 0,16 & 0,42 & 0,72 & 1,2  & 1,8 \\\hline
+\multirow{2}{*}{${R=150}$ Ом}      
+      & ${I}$, мА  & 0,014 & 0,03 & 0,04 & 0,05 & 0,06 & 0,07 \\
+      & ${P}$, мВт & 0,028 & 0,12 & 0,24 & 0,4 & 0,6 & 0,84 \\\hline
+ \multirow{2}{*}{${R=330}$ Ом}
+ 	  & ${I}$, мА  & 0,006 & 0,012 & 0,018 & 0,2 & 0,2 & 0,2 \\
+      & ${P}$, мВт & 0,012 & 0,048 & 0,108 & 1,6 & 2  &  2,4 \\	     
+\hline
+\end{tabular}
+	\end{center}
+	\newpage
+	\textit{График зависимости ${U(I)}$ для разных резисторов :}
+	\begin{center}
+		\includegraphics[scale=0.78]{plot_3_res.png} 
+	\end{center}
+	Вычислим численное значение силы тока ${I}$, при котором в резисторе рассеивается ${P}$, равная 2 Вт, используя формулу :
+	\begin{center}
+		\begin{equation}
+			I=\sqrt{\frac{P}{R}}			
+		\end{equation}
+	\end{center}
+	\begin{list}{\labelitemi}{\leftmargin=3cm}
+		\item Для ${R=100}$ Ом : ${I=\sqrt{\frac{2}{100}}=\sqrt{0.02}=0.1414214  }=0.14$ A
+		\item Для ${R=150}$ Ом : ${I=\sqrt{\frac{2}{150}}=\sqrt{0.013}=0.1154701=0.12}$ A
+		\item Для ${R=330}$ Ом : ${I=\sqrt{\frac{2}{330}}=\sqrt{0.0060606}= 0.0778499}=0.078$ A
+	\end{list}
+	Линия постоянной мощности указана на предыдущем графике и найдена подстановкой значений напряжения ${U}$  в формулу ${I=\frac{P}{U}}$ :
+	\begin{center}
+		\begin{tabular}{|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|}
+			\hline ${U}$, В & 2 & 4 & 6 & 8 & 10 & 12 \\ 
+			\hline ${I}$, А & 1 & 0,5 & 0,34 & 0,25 & 0,2 &  0,167 \\ 
+			\hline 
+		\end{tabular} 
+	\end{center}
+	\newpage
+	\textit{Линия мощности ${P = 2}$ Вт :}
+	\begin{center}
+		\includegraphics[scale=0.78]{Power.png}
+	\end{center}		 
+	\end{flushleft}
+	\begin{flushleft}
+	\textit{\textbf{Пункт 4.7 :} (Последовательное подключение резисторов)}
+	\\
+	\medskip
+	\hangindent=1.5cm \hangafter=0 \noindent
+	При последовательном соединении резисторов ток, проходящий	через каждый резистор цепи остается постоянной величиной, которая определяется приложенным напряжением ${U}$ и суммарным сопротивлением ${R_o}$ :
+	\begin{equation}
+		I=\frac{U}{R_o}
+	\end{equation}
+	\begin{equation}
+		R_o = \sum_{i=1}^n R_i		
+	\end{equation}
+	На каждый отдельный резистор при этом приходится некоторое частичное напряжение.\\
+	\medskip
+		Сумма частичных напряжений в соответствии с 2-ым законом Кирхгофа равна одному приложенному напряжению :
+		\begin{equation}
+			U = \sum_{k=1}^n I \cdot R_k
+		\end{equation}
+	Измерим для схемы \textit{4.7.2} значения силы тока	для участков цепи \textbf{A-B, C-D, E-F}, и \textbf{G-H}.Измерим также значения падения напряжения между точками \textbf{B-C}, \textbf{D-E}, \textbf{F-G} а также полное напряжение между точкам \textbf{B-G}.
+	\newpage
+	Результаты измерений для схемы цепи \textit{4.7.2} :
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline 
+\multicolumn{4}{|c|}{\textbf{Ток, мА}} & \multicolumn{3}{c|}{\textbf{Падения напряжения, В}} & {\textbf{Полное напряжение, В}}\tabularnewline
+\hline 
+\multicolumn{4}{|c|}{Точки цепи} & \multicolumn{3}{c|}{Точки цепи} & {Точки цепи}\tabularnewline
+\hline 
+\textbf{A-B} & \textbf{C-D} & \textbf{E-F} & \textbf{G-H} & \textbf{B-C} & \textbf{D-E} & \textbf{F-G} & \textbf{B-G}\tabularnewline
+\hline 
+12,6 & 12,3 & 12,5 & 12,4 & 1,23 & 2,73 & 6,03 & 8,76\tabularnewline
+\hline 
+\end{tabular}
+\\
+\medskip 	
+	\end{center}
+	Рассчитаем значения напряжения ${R}$ на всех участках цепи :
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|}
+\hline ${R_{BC}}$,  Ом & ${R_{DE}}$,  Ом & ${R_{FG}}$,  Ом & ${R_O}$,  Ом \\ 
+\hline  0,0977 & 0,223 & 0,466 & 0,706 \\ 
+\hline 
+\end{tabular}
+	\\
+	\medskip 
+	\end{center}
+		С учетом погрешности измерений получаем :
+	\begin{center}
+		${R_O = R_{BC}+R_{DE}+R_{FG}}$\\
+		${0,706 \approx 0,0977 + 0,223 + 0,466 = 0,7467}$ 
+	\end{center}
+%	\textit{Вопросы :}
+%	\begin{list}{\labelitemi}{\leftmargin=3cm}	
+%		\item 	
+%	\end{list}}		
+	\end{flushleft}
+	\newpage 
+		\begin{flushleft}
+	\textit{\textbf{Пункт 4.8 :} (Параллельное подключение резисторов)}
+	\\
+	\medskip
+	\hangindent=1.5cm \hangafter=0 \noindent
+	Если резисторы и другие виды нагрузки соединены параллельно, то все эти элементы находятся под одинаковым напряжением.
+	\\
+	\medskip
+	В каждом узле такой цепи протекает свой ток.Сумма токов всех ветвей в соответствии с 1-ым законом Кирхгофа равна полному току цепи :
+	\begin{equation}
+		I_o = \sum_{k=1}^n I_k 		
+	\end{equation}
+	, где ${n}$  - число ветвей цепи, содержащих нагрузку.
+	\\
+	\medskip
+	Величина силы тока ${I}$ зависит от приложенного напряжения и сопротивления данной ветви цепи :
+	\begin{center}
+		${I_k = \frac{U}{R_k}}$
+	\end{center}
+	Ток в неразветвленной части цепи зависит от приложенного напряжения и эквивалентного сопротивления цепи :
+	\begin{center}
+		${I_{неразв} = \frac{U}{R_{экв}}}$
+	\end{center}
+	Выражение для вычисления эквивалентного сопротивления цепи :
+	\begin{equation}
+		R_{экв}=\frac{1}{\sum_{k=1}^n \frac{1}{R_k}}	
+	\end{equation}
+	Для цепи с 2 параллельно соединенными резисторами :
+	\begin{equation}
+		R_{экв}=\frac{R_1 \cdot R_2}{R_1 + R_2} 
+	\end{equation} 
+	Измерим для схемы \textit{4.8.1} значения силы тока	для участков цепи \textbf{A-B, C-D, E-F, G-H, L-K}.Измерим также значения напряжения на резисторах между ${R_1}$, ${R_2}$ и ${R_3}$ точками \textbf{D-K}, \textbf{F-K}, и \textbf{H-K} а также значение полной силы тока между точкам \textbf{A-B} и \textbf{L-K}.\\
+	\medskip
+	Результаты измерений для схемы цепи \textit{4.8.1} :
+	\begin{center}
+		\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline 
+\multicolumn{3}{|c|}{\textbf{Напряжения, В}} & \multicolumn{3}{c|}{\textbf{Токи ветвей, мА}} & \multicolumn{2}{c|}{\textbf{Полный ток цепи, мА}}\tabularnewline
+\hline 
+\multicolumn{3}{|c|}{Точки измерения} & \multicolumn{3}{c|}{Точки измерения} & \multicolumn{2}{c|}{Точки измерения}\tabularnewline
+\hline 
+\textbf{D-K(R1)} & \textbf{F-K(R2}) & \textbf{H-K(R3)} & \textbf{C-D} & \textbf{E-F} & \textbf{G-H} & \textbf{A-B} & \textbf{L-K}\tabularnewline
+\hline 
+ 9,9 & 9,98 & 9,98 & 0,1 & 0,04 & 0,02 & 0,14 & 0,16 \tabularnewline
+\hline 
+\end{tabular}
+	\end{center}
+	Рассчитаем значения напряжения ${R}$ на всех участках цепи (используя закон Ома ${R=\frac{U}{I}}$) :
+		\begin{center}
+		\begin{tabular}{|c|c|c|c|}
+\hline ${R_{1}}$,  Ом & ${R_{2}}$,  Ом & ${R_{3}}$,  Ом & ${R_{полн}}$,  Ом \\ 
+\hline  99  & 249,5 & 499 & 848 \\ 
+\hline 
+\end{tabular}
+	\\
+	\medskip 
+	\end{center}
+	Проверим выражение : ${\frac{1}{R_{полн}}} = \frac{1}{R_1} + \frac{1}{R_2} + \frac{1}{R_3}$ c (учетом погрешности) :
+	\begin{center}
+		${\frac{1}{848} \approx \frac{1}{99} + \frac{1}{249,5} + \frac{1}{499} }$
+	\end{center}
+	\textit{Вопросы : }\\
+		\begin{list}{\labelitemi}{\leftmargin=3cm}	
+			\item Полное сопротивление цепи с параллельным соединением резисторов равно 848 Ом.	 	
+	        \item Токи ветвей обратно пропорциональные величинам сопротивлений этих параллельных ветвей.
+	     \end{list}   	
+	\end{flushleft}
+	\newpage
+	\begin{flushleft}
+		\textit{\textbf{Пункт 4.9 } (Цепи со смешанной последовательно-параллельным соединением резисторов)}
+		\\
+		\medskip
+		\hangindent=1.5cm \hangafter=0 \noindent
+		Подадим на вход схемы \textit{4.9.1} и измерим силу тока ${I}$ во всех точках \textbf{A-B}, \textbf{C-D}, \textbf{E-F}. а также напряжение.\\
+		Результаты измерений :
+		\begin{center}
+				\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline ${I_1}$, мА & ${I_2}$, мА & ${I_3}$, мА & ${U_{GH}}$ & ${U_{GM}}$ & ${U_{MA}}$ & ${U_{GA}}$ & ${U_{BH}}$ \\ 
+\hline 27,7 & 18,9 & 8,7 & 15 & 6 & 2,8 & 8,6 & 5,2 \\ 
+\hline 
+\end{tabular} 
+		\end{center} 
+		Рассчитаем соответствующие значения сопротивления по закону Ома (${R=\frac{U}{I}}$):
+		\begin{center}
+			\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline  & ${R_1}$, Ом & ${R_2}$, Ом & ${R_3}$, Ом & ${R_4}$, Ом & ${R_{12}}$, Ом & ${R_{34}}$, Ом & ${R_{полн}}$, Ом \\ 
+\hline Измеренные & 0,22 & 0,1 & 0,34 & 0,7 & 0,31 & 0,23 & 0,6 \\ 
+\hline Рассчитанные & 0,2167 & 0,1011 &  0,328 & 0,7126 & 0,3178 & 0,2246 & 0,5424 \\ 
+\hline Погрешность & 0,0033 & 0,0011 & 0,012 & 0,0126 & 0,0078 & 0,0054 & 0,0576 \\ 
+\hline 
+\end{tabular} 
+		\end{center}
+	где рассчитанные значения ${R_{12}}$ и ${R_{34}}$ вычисляются как :
+	\begin{center}
+		${R_{12}= R_1 + R_2}$ \\\medskip
+		${R_{34}= \frac{R_3*R_4}{R_3+R_4}}$	
+	\end{center}
+	Рассчитаем расхождения результатов :
+	\begin{list}{\labelitemi}{\leftmargin=3cm}
+		\item Для ${R_1}$ = ${\frac{0,0033}{0,2167}}$ ${\cdot}$ 100  = 21,34 \%
+		\item Для ${R_2}$ = ${\frac{0,0011}{0,1011}}$ ${\cdot}$ 100  = 10 \%
+		\item Для ${R_3}$ = ${\frac{0,012}{0,328}}$ ${\cdot}$ 100  = 31,6 \%
+		\item Для ${R_4}$ = ${\frac{0,0126}{0,7126}}$ ${\cdot}$ 100  = 70 \%
+	\end{list}
+	\end{flushleft}
+			
+\end{document}
