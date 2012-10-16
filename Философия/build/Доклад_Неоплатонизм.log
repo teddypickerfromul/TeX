@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.9.30)  17 OCT 2012 00:56
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.9.30)  17 OCT 2012 00:58
 entering extended mode
  %&-line parsing enabled.
 **Р”РѕРєР»Р°Рґ_РќРµРѕРїР»Р°С‚РѕРЅРёР·Рј.tex
@@ -94,20 +94,20 @@ File: t2acmr.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
 ))
 \openout1 = `Р”РѕРєР»Р°Рґ_РќРµРѕРїР»Р°С‚РѕРЅРёР·Рј.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
 
 (/usr/share/texmf-texlive/tex/latex/ucs/ucsencs.def
 File: ucsencs.def 2003/11/29 Fixes to fontencodings LGR, T3
@@ -131,11 +131,11 @@ File: uni-4.def 2004/10/17 UCS: Unicode data U+0400..U+04FF
 File: images/platon.jpg Graphic file (type jpg)
  <use images/platon.jpg>
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 27.
+(Font)              <12> on input line 25.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 27.
+(Font)              <8> on input line 25.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 27.
+(Font)              <6> on input line 25.
 
 [1
 
@@ -145,40 +145,40 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 \openout3 = `Р”РѕРєР»Р°Рґ_РќРµРѕРїР»Р°С‚РѕРЅРёР·Рј.toc'.
 
  [1]
-Underfull \hbox (badness 10000) in paragraph at lines 35--36
+Underfull \hbox (badness 10000) in paragraph at lines 33--34
 
  []
 
 [2] (/usr/share/texmf-texlive/tex/latex/ucs/data/uni-32.def
 File: uni-32.def 2004/10/17 UCS: Unicode data U+2000..U+20FF
 )
-Underfull \hbox (badness 10000) in paragraph at lines 44--45
+Underfull \hbox (badness 10000) in paragraph at lines 42--43
 
  []
 
 [3]
-Overfull \hbox (15.27612pt too wide) in paragraph at lines 50--51
+Overfull \hbox (15.27612pt too wide) in paragraph at lines 48--49
 \T2A/cmr/m/n/12 ных ти-пах лю-дей. Обы-ден-ный че-ло-век по-гру-жен в чувственн
 о-практическое
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 50--51
+Underfull \hbox (badness 10000) in paragraph at lines 48--49
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 53--54
+Underfull \hbox (badness 10000) in paragraph at lines 51--52
 
  []
 
 [4]
-Underfull \hbox (badness 10000) in paragraph at lines 60--61
+Underfull \hbox (badness 10000) in paragraph at lines 58--59
 
  []
 
 
-Overfull \hbox (2.5479pt too wide) in paragraph at lines 63--66
+Overfull \hbox (2.5479pt too wide) in paragraph at lines 61--64
 []\T2A/cmr/m/n/12 Источником кра-со-ты яв-ля-ет-ся объ-ек-тив-ный ми-ро-вой ра-
 зум. Ведь кра-
  []
@@ -186,29 +186,34 @@ Overfull \hbox (2.5479pt too wide) in paragraph at lines 63--66
 [5] <images/sc_ph1.png, id=30, 101.178pt x 255.1131pt>
 File: images/sc_ph1.png Graphic file (type png)
  <use images/sc_ph1.png>
-Overfull \hbox (4.01012pt too wide) in paragraph at lines 75--76
+Overfull \hbox (4.01012pt too wide) in paragraph at lines 73--74
 \T2A/cmr/m/n/12 Все ми-ро-воз-зре-ние Пло-ти-на про-ни-за-но един-ством, до обо
 -жеств-ле-ния Еди-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 75--76
+Underfull \hbox (badness 10000) in paragraph at lines 73--74
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 78--80
+Underfull \hbox (badness 10000) in paragraph at lines 76--78
 
  []
 
 [6 <./images/sc_ph1.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 82--83
+Underfull \hbox (badness 10000) in paragraph at lines 80--81
 
  []
 
 (/usr/share/texmf-texlive/tex/latex/ucs/data/uni-0.def
 File: uni-0.def 2004/10/17 UCS: Unicode data U+0000..U+00FF
 )
+Underfull \hbox (badness 10000) in paragraph at lines 83--84
+
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 85--86
 
  []
@@ -224,32 +229,32 @@ Underfull \hbox (badness 10000) in paragraph at lines 89--90
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 91--92
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 93--95
+Underfull \hbox (badness 10000) in paragraph at lines 91--93
 
  []
 
 [7] [8]
-Underfull \hbox (badness 10000) in paragraph at lines 108--110
+Underfull \hbox (badness 10000) in paragraph at lines 106--108
 
  []
 
 [9]
-Overfull \hbox (42.68195pt too wide) in paragraph at lines 114--116
+Overfull \hbox (42.68195pt too wide) in paragraph at lines 112--114
 \T2A/cmr/m/n/12 Плотин по-ни-мал ма-те-рию как ѕнебы-тиеї, т.е. как ѕаб-со-лют-
 ное не-существование,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 114--116
+Underfull \hbox (badness 10000) in paragraph at lines 112--114
 
  []
 
 [10]
+Underfull \hbox (badness 10000) in paragraph at lines 118--119
+
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 120--121
 
  []
@@ -259,13 +264,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 122--123
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 124--125
-
- []
-
 [11] [12]
-Underfull \hbox (badness 10000) in paragraph at lines 135--136
+Underfull \hbox (badness 10000) in paragraph at lines 133--134
 
  []
 
